@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お客様マイページ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        /* コンテナのスタイル */
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative; /* ロゴをコンテナ内に配置するために必要 */
+        }
+
+        /* ロゴのスタイル */
+        .logo {
+            position: absolute; /* コンテナ内で絶対配置 */
+            top: 20px; /* 上からの距離 */
+            left: 20px; /* 左からの距離 */
+        }
+
+        .logo img {
+            width: 175px;  /* ロゴのサイズ調整 */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .profile {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile img {
+            border-radius: 8px;
+            width: 500px;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .profile-info {
+            max-width: 500px;
+        }
+
+        .bar-code img {
+            width: auto;
+            height: 150px;
+        }
+
+        .points {
+            background-color: #c88e54;
+            border: 1px solid #af6f31;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- ロゴマーク -->
+    <div class="logo">
+        <a href="https://a-m-s-1.jimdosite.com/" target="_blank"> <!-- ロゴクリックで遷移するURL -->
+            <img src="A.M.S._公式マーク.png" alt="ALEXA管理協会">
+        </a>
+    </div>
+
+    <h1>お客様マイページ</h1>
+
+    <!-- 会員情報セクション -->
+    <div class="profile">
+        <!-- 会員カードの画像 -->
+        <div class="profile-img">
+            <img src="会員カード_パパ.png" ]alt="ALEXA使用許可証">
+        </div>
+
+        <!-- 会員情報 -->
+        <div class="profile-info">
+            <h2>お客様氏名: フルヤ トシアキ 様</h2>
+            <p>お客様番号: 5287 1911 3401</p>
+        </div>
+    </div>
+
+    <!-- バーコード -->
+    <div class="bar-code">
+        <h2>ALEXA使用許可コード</h2>
+        <img src="使用許可コード_パパ.png" alt="ALEXA使用許可コード">
+    </div>
+
+    <!-- 現在保持されているALEXAマイル -->
+    <div class="points">
+        <h3>ALEXAマイル&emsp;ブロンズ</h3>
+        <p>現在、<strong>0マイル</strong>を保有しています。</p>
+        
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 会員サイト - All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
