@@ -149,12 +149,23 @@
 
     <!-- 商品絞り込み機能 -->
     <div class="filter-container">
-        <label for="category">カテゴリで絞り込み:</label>
-        <select id="category" onchange="filterProducts()">
-            <option value="all">すべて</option>
-            <option value="electronics">マイル</option>
-            <option value="clothing">ハイパー店</option>
-        </select>
+        <label for="category">商品名で絞り込み:</label>
+        <!DOCTYPE html>
+        <html lang="ja">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>テキストボックスの例</title>
+        </head>
+        <body>
+          <h2></h2>
+          <form action="#">
+            <label for="name"></label>
+            <input type="text" id="name" name="name" placeholder="">
+            <br><br>
+          </form>
+        </body>
+        </html>
         <label for="price">価格帯で絞り込み:</label>
         <input type="range" id="price" min="0" max="10000" step="500" value="10000" onchange="filterProducts()">
         <span id="price-value">¥10,000</span>
