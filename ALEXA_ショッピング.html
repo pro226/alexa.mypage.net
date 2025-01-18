@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オンラインショッピング</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .filter-container select, .filter-container input {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 250px;
+            margin: 10px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .product p {
+            font-size: 16px;
+            color: #888;
+        }
+        .product .price {
+            font-size: 20px;
+            color: #333;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .product button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product button:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            margin-top: 30px;
+        }
+        .cart-container {
+            margin: 20px;
+        }
+        .cart-container h3 {
+            margin-bottom: 10px;
+        }
+        .cart-items {
+            margin: 10px 0;
+        }
+        .cart-items ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .cart-items li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .checkout-form {
+            display: none;
+            margin-top: 20px;
+        }
+        .checkout-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .checkout-message {
+            display: none;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .cart-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .cart-button:hover {
+            background-color: #0056b3;
+        }
+        .total-price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ALEXA管理協会_オンラインショッピング</h1>
+    </header>
+
+    <!-- 商品絞り込み機能 -->
+    <div class="filter-container">
+        <label for="category">商品名で絞り込み:</label>
+        <!DOCTYPE html>
+        <html lang="ja">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>テキストボックスの例</title>
+        </head>
+        <body>
+          <h2></h2>
+          <form action="#">
+            <label for="name"></label>
+            <input type="text" id="name" name="name" placeholder="">
+            <br><br>
+          </form>
+        </body>
+        </html>
+        
+          
+        </select>
+        <label for="price">価格帯で絞り込み:</label>
+        <input type="range" id="price" min="0" max="10000" step="500" value="10000" onchange="filterProducts()">
+        <span id="price-value">¥10,000</span>
+    </div>
+
+    <!-- 商品リスト -->
+    <div class="container" id="product-container">
+        <div class="product" data-category="electronics" data-price="3000">
+            <img src="OIP.jpg" alt="">
+            <h3>ALEXAマイル_100マイル</h3>
+            <p>ALEXAマイルがたまると様々な特典があります。</p>
+            <div class="price">¥3,000</div>
+            <button onclick="addToCart('ALEXAマイル_100マイル', 3000)">カートに追加</button>
+        </div>
+
+        <div class="product" data-category="clothing" data-price="4500">
+            <img src="OIP.jpg" alt="">
+            <h3>ALEXAマイル_500マイル</h3>
+            <p>ALEXAマイルがたまると様々な特典があります。</p>
+            <div class="price">¥4,500</div>
+            <button onclick="addToCart('ALEXAマイル_500マイル', 4500)">カートに追加</button>
+        </div>
+
+        <div class="product" data-category="accessories" data-price="2200">
+            <img src="OIP.jpg" alt="">
+            <h3>ALEXAマイル_1000マイル</h3>
+            <p>ALEXAマイルがたまると様々な特典があります。</p>
+            <div class="price">¥5,000</div>
+            <button onclick="addToCart('ALEXAマイル_1000マイル', 5000)">カートに追加</button>
+        </div>
+
+        <div class="product" data-category="accessories" data-price="2200">
+            <img src="OIP.jpg" alt="">
+            <h3>ALEXAマイル_3000マイル</h3>
+            <p>ALEXAマイルがたまると様々な特典があります。</p>
+            <div class="price">¥6,800</div>
+            <button onclick="addToCart('ALEXAマイル_3000マイル', 6800)">カートに追加</button>
+        </div>
+        <div class="product" data-category="accessories" data-price="2200">
+            <img src="OIP1.webp" alt="">
+            <h3>ハイパー店_口パク</h3>
+            <p>ハイパー店の商品を取り扱っております。</p>
+            <div class="price">¥680</div>
+            <button onclick="addToCart('ハイパー店_口パク', 680)">カートに追加</button>
+        </div>
+        <div class="product" data-category="accessories" data-price="2200">
+            <img src="OIP2.webp" alt="">
+            <h3>ハイパー店_しわくちゃ紙</h3>
+            <p>ハイパー店の商品を取り扱っております。</p>
+            <div class="price">¥760</div>
+            <button onclick="addToCart('ハイパー店_しわくちゃ紙', 760)">カートに追加</button>
+        </div>
+        <div class="product" data-category="accessories" data-price="2200">
+            <img src="OIP (1).jpg" alt="">
+            <h3>ハイパー店_塗り絵</h3>
+            <p>ハイパー店の商品を取り扱っております。</p>
+            <div class="price">¥360</div>
+            <button onclick="addToCart('ハイパー店_塗り絵', 360)">カートに追加</button>
+        </div>
+        <div class="product" data-category="accessories" data-price="2200">
+            <img src="OIP5.png" alt="">
+            <h3>ハイパー店_白紙</h3>
+            <p>ハイパー店の商品を取り扱っております。</p>
+            <div class="price">¥270</div>
+            <button onclick="addToCart('ハイパー店_白紙', 270)">カートに追加</button>
+        </div>
+    </div>
+
+    <!-- カート機能 -->
+    <div class="cart-container" id="cart-container" style="display: none;">
+        <h3>カート</h3>
+        <div class="cart-items">
+            <ul id="cart-items-list"></ul>
+        </div>
+        <div class="total-price">
+            合計金額: ¥<span id="total-price">0</span>
+        </div>
+        <button id="checkout-btn" onclick="showCheckoutForm()" style="display: none;">購入手続き</button>
+        <div id="checkout-form" class="checkout-form">
+            <h3>購入手続き</h3>
+            <input type="text" id="customer-id" placeholder="お客様番号" required>
+            <input type="text" id="expiry-date" placeholder="有効期限 (MM/YY)" required>
+            <input type="text" id="security-code" placeholder="セキュリティコード" required>
+            <input type="email" id="email" placeholder="メールアドレス" required>
+            <button onclick="completePurchase()">購入手続き完了</button>
+        </div>
+    </div>
+
+    <!-- 購入後メッセージ -->
+    <div id="checkout-message" class="checkout-message">
+        ALEXA管理協会にメールが送信されました。ALEXA管理協会からの承認メールが届かなければ購入は確定しません。
+    </div>
+
+    <footer>
+        <p>&copy; 2025 オンラインショップ</p>
+    </footer>
+
+    <!-- カートボタン -->
+    <button class="cart-button" id="cart-button" onclick="toggleCart()">カートを表示</button>
+
+    <script>
+        let cart = [];
+
+        // 商品をカートに追加
+        function addToCart(productName, productPrice) {
+            cart.push({ name: productName, price: productPrice });
+            updateCart();
+        }
+
+        // カートの内容を更新
+        function updateCart() {
+            const cartList = document.getElementById('cart-items-list');
+            cartList.innerHTML = '';
+            let totalPrice = 0;
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ¥${item.price}`;
+                cartList.appendChild(li);
+                totalPrice += item.price;
+            });
+            document.getElementById('total-price').textContent = totalPrice;
+            document.getElementById('checkout-btn').style.display = cart.length > 0 ? 'block' : 'none';
+        }
+
+        // カート表示・非表示を切り替え
+        function toggleCart() {
+            const cartContainer = document.getElementById('cart-container');
+            const cartButton = document.getElementById('cart-button');
+
+            if (cartContainer.style.display === 'none' || cartContainer.style.display === '') {
+                cartContainer.style.display = 'block';
+                cartButton.textContent = 'カートを非表示';
+            } else {
+                cartContainer.style.display = 'none';
+                cartButton.textContent = 'カートを表示';
+            }
+        }
+
+        // 購入手続きフォームを表示
+        function showCheckoutForm() {
+            document.getElementById('checkout-form').style.display = 'block';
+        }
+
+        // 購入手続き完了
+        function completePurchase() {
+            document.getElementById('checkout-form').style.display = 'none';
+            document.getElementById('checkout-message').style.display = 'block';
+        }
+
+        // 商品絞り込み機能
+        function filterProducts() {
+            const category = document.getElementById('category').value;
+            const maxPrice = document.getElementById('price').value;
+            document.getElementById('price-value').textContent = `¥${maxPrice}`;
+
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                const productCategory = product.getAttribute('data-category');
+                const productPrice = product.getAttribute('data-price');
+
+                if ((category === 'all' || category === productCategory) && productPrice <= maxPrice) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
