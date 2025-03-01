@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有料会員ページ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* 基本設定 */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        /* メインコンテナ */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* ロゴコンテナ */
+        .logos {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 15px; /* ロゴ間の隙間 */
+        }
+
+        .logos img {
+            max-width: 120px;
+            cursor: pointer;
+        }
+
+        /* 会員カード */
+        .membership-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #eef2f7;
+            padding: 50px;
+            border-radius: 10px;
+            margin-top: 80px; /* ロゴの下に余白を作る */
+            box-shadow: 0 0 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .membership-card img {
+            max-width: 320px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .membership-info {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .membership-info p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .membership-info h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* QRコード表示 */
+        .qr-code {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .qr-code img {
+            max-width: 150px;
+            margin-top: 10px;
+        }
+
+        /* フッター */
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ボタン */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1c3158d2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- ロゴ 1つ -->
+        <div class="logos">
+            <a href="https://a-m-s-1.jimdosite.com/" target="_blank">
+                <img src="A.M.S._公式マーク.png" alt="ロゴ1">
+            </a>
+        </div>
+
+        <!-- 会員カード -->
+        <div class="membership-card">
+            <img src="図3.png" alt="会員カード">
+            <div class="membership-info">
+                <h2>フルヤ　トシアキ 様</h2>
+                <p><strong>お客様番号:</strong> 2410 6095 3714</p>
+                <p><strong>現在のALEXAマイル:</strong> 0 マイル</p>
+            </div>
+        </div>
+
+        <!-- QRコード -->
+        <div class="qr-code">
+            <p><strong>会員コード:</strong></p>
+            <img src="バーコード3.png" alt="QRコード">
+        </div>
+
+        <!-- その他の情報や操作 -->
+        <div class="footer">
+            <p>有料会員特典のオンラインショッピング</p>
+            <a href="ALEXA_ショッピング.html" class="btn" target="_blank">オンラインショッピング</a>
+        </div>
+    </div>
+</body>
+
+</html>
